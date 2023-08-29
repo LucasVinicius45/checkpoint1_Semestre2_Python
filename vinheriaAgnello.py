@@ -1,3 +1,5 @@
+from datetime import datetime, date, timedelta
+
 #Classe que representa o cadastro do cliente
 class Cliente:
     def __init__(self, nome, cpf, endereco, enderecoEntrega):
@@ -161,6 +163,11 @@ def calcularPedidoComFrete(carrinhoPedido):
     valorPedido = valorTotal + totalFrete + (quantidadeGarrafa * 10) + 10
     informacaoFrete = Informacaofrete(quantidadeGarrafa, 10, totalFrete, valorPedido, totalFrete)
     return informacaoFrete
+
+def notificaResultado(resultadoComFrete):
+    print(f"O total é {resultadoComFrete.valorPedido}")
+    print(f"O frete é {resultadoComFrete.totalFrete}")
+    print(f"O numero de garrafas é {resultadoComFrete.quantidadeGarrafa}")
     
 ##cliente = cadastrarCliente()
 ##apresentaCliente(cliente)
@@ -170,9 +177,12 @@ listaCompras = []
 carrinhoPedido = realizarPedidoCliente(lista,listaCompras)
 exibirLista(carrinhoPedido)
 resultadoComFrete = calcularPedidoComFrete(carrinhoPedido)
-print(f"O total é {resultadoComFrete.valorPedido}")
-print(f"O frete é {resultadoComFrete.totalFrete}")
-print(f"O numero de garrafas é {resultadoComFrete.quantidadeGarrafa}")
+notificaResultado(resultadoComFrete)
+
 ##print('LISTA Estoque')
 ##exibirLista(lista)
 
+
+def apresentaData():
+    today  = date.today()
+    data3dias = today + timedelta(days=3)

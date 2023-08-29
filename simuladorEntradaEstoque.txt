@@ -1,0 +1,50 @@
+O código implementa um sistema básico para o cadastro de fornecedores, controle de entrada de itens de estoque e agendamento de datas de entrega.
+
+1. Definição da Classe Fornecedor:
+   - A classe `Fornecedor` permite cadastrar informações sobre um fornecedor, como nome, CNPJ, endereço de pedido e endereço de entrega.
+
+2. Definição da Classe ItemEstoque:
+   - A classe `ItemEstoque` define informações sobre itens de entrada no estoque, incluindo número, nome do item e quantidade.
+
+3. Definição da Classe Data:
+   - A classe `Data` permite criar opções de datas de entrega com número e a data em si.
+
+4. Função cadastrarfornecedor:
+   - Essa função permite ao usuário cadastrar um novo fornecedor, solicitando informações como nome, CNPJ, endereço de pedido e endereço de entrega.
+
+5. Função apresentafornecedor:
+   - Essa função exibe as informações do fornecedor fornecido como argumento.
+
+6. Função criarListaDeEntrada:
+   - Essa função cria uma lista de opções de itens de entrada, como "Rolhas", "Garrafas", "Rótulos" e "Caixas".
+
+7. Função apresentaListaEntrada:
+   - Essa função exibe a lista de itens de entrada disponíveis.
+
+8. Função escolherEntrada:
+   - Essa função permite ao usuário escolher um item de entrada da lista, informar a quantidade desejada e atualizar o estoque.
+
+9. Função apresentaEstoque:
+   - Essa função exibe os itens presentes no estoque com suas quantidades.
+
+10. Função somaQuantidadeOuAdicionaItemLista:
+    - Essa função gerencia a adição de itens ao estoque, somando quantidades para itens já presentes.
+
+11. Função criarListaData:
+    - Essa função cria uma lista de opções de datas de entrega, baseadas em diferentes intervalos de tempo a partir da data atual.
+
+12. Função apresentaData:
+    - Essa função exibe as opções de datas de entrega.
+
+13. Função escolherData:
+    - Essa função permite ao usuário escolher uma opção de data de entrega.
+
+Ao longo do código, o fluxo se desenvolve da seguinte forma:
+
+- Um fornecedor é cadastrado e suas informações são apresentadas.
+- O usuário escolhe itens de entrada e suas quantidades.
+- Após escolher os itens, o usuário pode finalizar a compra ou continuar adicionando itens.
+- O estoque é apresentado.
+- O usuário escolhe uma data de entrega a partir das opções apresentadas.
+
+O código não apenas permite o cadastro de fornecedores, entrada de itens de estoque e agendamento de datas, mas também demonstra um fluxo interativo com entradas do usuário para realizar essas operações.

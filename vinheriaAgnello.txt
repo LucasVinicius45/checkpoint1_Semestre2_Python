@@ -1,0 +1,69 @@
+# Felipe Terra, RM: 99405
+# Irana Pereira, RM: 98593 
+# Leonardo Correia moura, RM: 550413
+# Lucas Vinicius, RM: 98480 
+# Mariana A Melo RM: 98121 
+
+O código implementa um sistema básico de cadastro e gerenciamento de pedidos de vinhos.
+
+1. Definição da Classe Cliente 
+   - A classe `Cliente` representa o cadastro de um cliente, com informações como nome, CPF, endereço de pedido e endereço de entrega.
+
+2. Definição da Classe QuantidadeEspecifica 
+   - A classe `QuantidadeEspecifica` define opções de quantidade para os vinhos, como unitário, meia dúzia e uma dúzia. Cada opção possui informações sobre o número, o tipo (como "unitário", "meia dúzia", "caixa"), a quantidade (por exemplo, 6 vinhos individuais) e a quantidade do tipo especificado.
+
+3. Definição da Classe Produto 
+   - A classe `Produto` define um tipo de vinho com um número, nome, quantidade disponível e valor.
+
+4. Definição da Classe Informacaofrete 
+   - A classe `Informacaofrete` armazena informações sobre o frete, incluindo a quantidade total de garrafas, o valor por garrafa, a porcentagem do pedido total, o valor total do pedido, o valor total do frete e a data do pedido.
+
+5. Definição da Classe Data 
+   - A classe `Data` define opções de datas de entrega com um número e a data em si.
+
+6. Função cadastrarCliente 
+   - Essa função permite ao usuário cadastrar um novo cliente, solicitando informações como nome, CPF, endereço de pedido e endereço de entrega.
+
+7. Função apresentaCliente 
+   - Essa função exibe as informações do cliente fornecido como argumento.
+
+8. Função criarListaDeVinho 
+   - Essa função cria uma lista de vinhos (produtos) com informações como número, nome, quantidade e valor.
+
+9. Função criarListadeQuantidade 
+   - Essa função cria uma lista de opções de quantidade (QuantidadeEspecifica) para os vinhos, como unitário, meia dúzia e caixa.
+
+10. Função apresentarListaQuantidade 
+    - Essa função exibe as opções de quantidade disponíveis para os vinhos.
+
+11. Função pedirQuantidadeEspecifica 
+    - Essa função permite ao usuário escolher uma opção de quantidade e a quantidade desejada para um determinado tipo de vinho.
+
+12. Função apresentaListaDeVinho 
+    - Essa função exibe a lista de vinhos disponíveis.
+
+13. Função realizarPedidoCliente 
+    - Essa função permite ao cliente escolher um item da lista de vinhos, a quantidade desejada e realiza o controle de estoque. Ela também permite adicionar produtos a um carrinho de compras.
+
+14. Função somaQuantidadeOuAdicionaItemLista 
+    - Essa função gerencia a adição de itens ao carrinho de compras, somando quantidades para produtos já presentes.
+
+15. Função exibirLista 
+    - Essa função exibe os produtos no carrinho de compras.
+
+16. Função calcularPedidoComFrete 
+    - Essa função calcula o valor total do pedido, considerando os produtos no carrinho, o frete, a quantidade de garrafas e a data de entrega.
+
+17. Função notificaResultado 
+    - Essa função exibe informações detalhadas sobre o pedido, incluindo valor total, frete, quantidade de garrafas e data de entrega.
+
+18. Função criarListaData 
+    - Essa função cria uma lista de opções de datas de entrega.
+
+19. Função apresentaData 
+    - Essa função exibe as opções de datas de entrega.
+
+20. Função escolherData 
+    - Essa função permite ao cliente escolher uma opção de data de entrega.
+
+O código em si representa um fluxo básico de um sistema de pedidos de vinhos, permitindo ao usuário cadastrar um cliente, escolher produtos, quantidades, calcular valores e taxas, e escolher uma data de entrega.

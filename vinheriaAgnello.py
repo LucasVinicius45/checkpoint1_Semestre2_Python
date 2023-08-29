@@ -52,11 +52,12 @@ class PedidosCliente:
         self.dataEntrega = dataEntrega
 
 class Informacaofrete:
-    def __init__(self, quantidadeGarrafa, valorGarrafa, porcentagemTotalPedido, valorPedido):
+    def __init__(self, quantidadeGarrafa, valorGarrafa, porcentagemTotalPedido, valorPedido, totalFrete):
         self.quantidadeGarrafa = quantidadeGarrafa
         self.valorGarrafa = valorGarrafa
         self.porcentagemTotalPedido = porcentagemTotalPedido
         self.valorPedido = valorPedido
+        self.totalFrete = totalFrete
     
 
 #Função que irá cadastrar o cliente, fazendo relação com a class de cliente feita
@@ -85,6 +86,23 @@ def criarListaDeVinho():
         vinho4
     ]
     return listaVinho
+
+def pedirQuantidadeEspecifica():
+    tipoQuantidade = input('Qual tipo de unidade você deseja? unitaria, caixa(12) ou meia duzia(6)')
+    quantidadeIPorTipo = float(input('Informe a quantidade ({}): '.format(tipoQuantidade)))
+
+    quantidade = 0
+
+    if(tipoQuantidade == 'unitaria'):
+        quantidade = quantidadeIPorTipo
+    elif(tipoQuantidade == 'caixa'):
+        quantidade = quantidadeIPorTipo * 12    
+    elif(tipoQuantidade == 'meia duzia'):
+        quantidade = quantidadeIPorTipo * 6 
+
+    return quantidade   
+        
+    
 #Apresentando a lista de vinhos criadas
 def apresentaListaDeVinho(listaVinho):
     for lista in listaVinho:
@@ -96,7 +114,7 @@ def realizarPedidoCliente(lista, listaCompras):
     
     for item in lista:
         if(float(item.numero) == float(itemLista)):
-            quantidadeItemLista = float(input('Informe a quantidade: '))
+            quantidadeItemLista = pedirQuantidadeEspecifica()
             if(item.quantidade >= quantidadeItemLista):
                 item.quantidade -= quantidadeItemLista
                 produto = Produto(0, item.nome, quantidadeItemLista, item.valor)
@@ -106,8 +124,6 @@ def realizarPedidoCliente(lista, listaCompras):
                 print('LISTA ATUALIZADA ==>')
                 apresentaListaDeVinho(lista)
 
-            
-            
             compraFinalizada = float(input('Deseje finalizar a compra? 1 para sim, 2 para não: '))
             
             if(compraFinalizada == 1):
@@ -135,13 +151,16 @@ def exibirLista(carrinhoPedido):
         print('Nome: {}, Quantidade: {}, Valor: {}'
               .format(item.nome, item.quantidade, item.valor))
 
-def calcularPedido(carrinhoPedido):
+def calcularPedidoComFrete(carrinhoPedido):
     valorTotal = 0
+    quantidadeGarrafa = 0
     for item in carrinhoPedido:
          valorTotal += (item.quantidade * item.valor)
-         
-    return valorTotal
-        
+         quantidadeGarrafa += item.quantidade
+    totalFrete = valorTotal * 0.1
+    valorPedido = valorTotal + totalFrete + (quantidadeGarrafa * 10) + 10
+    informacaoFrete = Informacaofrete(quantidadeGarrafa, 10, totalFrete, valorPedido, totalFrete)
+    return informacaoFrete
     
 ##cliente = cadastrarCliente()
 ##apresentaCliente(cliente)
@@ -150,8 +169,10 @@ apresentaListaDeVinho(lista)
 listaCompras = []
 carrinhoPedido = realizarPedidoCliente(lista,listaCompras)
 exibirLista(carrinhoPedido)
-total = calcularPedido(carrinhoPedido)
-print(f"O total é {total}")
+resultadoComFrete = calcularPedidoComFrete(carrinhoPedido)
+print(f"O total é {resultadoComFrete.valorPedido}")
+print(f"O frete é {resultadoComFrete.totalFrete}")
+print(f"O numero de garrafas é {resultadoComFrete.quantidadeGarrafa}")
 ##print('LISTA Estoque')
 ##exibirLista(lista)
 
